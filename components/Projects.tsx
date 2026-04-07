@@ -73,7 +73,7 @@ export default function Projects() {
   const cubicEase = [0.22, 1, 0.36, 1];
 
   return (
-    <section id="projects" className="min-h-screen bg-[#0b0b0b] py-32 px-6 md:px-16 lg:px-32 relative z-20 flex flex-col justify-center overflow-hidden">
+    <section id="projects" className="min-h-screen bg-[#0b0b0b] py-16 md:py-32 px-4 md:px-16 lg:px-32 relative z-20 flex flex-col justify-center overflow-hidden">
       
       {/* Background Soft Radial Glow mapped to active index */}
       <div 
@@ -87,7 +87,7 @@ export default function Projects() {
       <div className="max-w-6xl mx-auto w-full relative z-10 flex flex-col h-full justify-center">
         
         {/* Top Right Dot Indicators */}
-        <div className="absolute -top-12 md:-top-16 right-0 flex space-x-3">
+        <div className="absolute -top-8 md:-top-16 right-0 flex space-x-3">
           {projectsData.map((_, idx) => (
             <button
               key={idx}
@@ -137,10 +137,10 @@ export default function Projects() {
 
                     {/* Project Title */}
                     <h2 
-                      className="font-bold transition-all duration-700 m-0 tracking-tight"
+                      className="font-bold transition-all duration-700 m-0 tracking-tight flex-1 min-w-0"
                       style={{
                         fontFamily: "var(--font-syne)",
-                        fontSize: isActive ? "clamp(1.5rem, 4vw, 4rem)" : "clamp(1.2rem, 3vw, 3rem)",
+                        fontSize: isActive ? "clamp(1.25rem, 5.5vw, 4rem)" : "clamp(1rem, 4vw, 3rem)",
                         color: isActive ? "#ffffff" : "#272727",
                         transitionTimingFunction: "cubic-bezier(0.22, 1, 0.36, 1)"
                       }}
@@ -151,7 +151,7 @@ export default function Projects() {
 
                   {/* Right Side: Status Badge */}
                   <div 
-                    className="hidden md:flex px-4 py-1.5 border rounded-full text-xs uppercase tracking-widest font-mono transition-all duration-500"
+                    className="flex shrink-0 ml-3 px-2.5 md:px-4 py-1 md:py-1.5 border rounded-full text-[9px] md:text-xs uppercase tracking-widest font-mono transition-all duration-500"
                     style={
                       proj.status === "Live" 
                         ? {
@@ -180,10 +180,10 @@ export default function Projects() {
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-                      className="overflow-hidden pl-[60px] md:pl-[120px]"
+                      className="overflow-hidden pl-10 md:pl-[120px]"
                     >
-                      <div className="pt-6 pb-2 pr-4 md:pr-16 max-w-4xl" style={{ fontFamily: "var(--font-dm-sans)" }}>
-                        <p className="text-white/70 italic text-base md:text-xl font-light mb-6 leading-relaxed">
+                      <div className="pt-4 md:pt-6 pb-2 pr-0 md:pr-16 max-w-4xl" style={{ fontFamily: "var(--font-dm-sans)" }}>
+                        <p className="text-white/70 italic text-sm md:text-xl font-light mb-4 md:mb-6 leading-relaxed">
                           {proj.description}
                         </p>
                         <div className="flex flex-wrap gap-3">
@@ -200,7 +200,7 @@ export default function Projects() {
                             initial={{ opacity: 0, y: 4 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.1, duration: 0.4 }}
-                            className="flex flex-wrap gap-4 mt-8 pointer-events-auto"
+                          className="flex flex-wrap gap-2 md:gap-4 mt-5 md:mt-8 pointer-events-auto"
                             onClick={(e) => e.stopPropagation()} // Prevent triggering project selection when clicking links
                           >
                             {proj.links.live && (

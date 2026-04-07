@@ -38,37 +38,40 @@ export default function Overlay() {
     <div ref={containerRef} className="absolute top-0 left-0 w-full h-[800vh] pointer-events-none z-10">
       <div className="sticky top-0 h-[100dvh] w-full pointer-events-auto overflow-hidden">
         
-        {/* Sidebar Social Icons (Fixed on left edge) */}
-        <div className="absolute left-6 md:left-10 bottom-0 top-0 flex flex-col items-center justify-end pb-12 lg:pb-16 z-50 pointer-events-auto">
-          <div className="flex flex-col items-center gap-6">
-            <a href="https://github.com/harshraj9428-stack" target="_blank" rel="noreferrer" className="text-white/40 hover:text-cyan-400 hover:scale-110 transition-all duration-300">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.02c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-            </a>
-            <a href="https://www.linkedin.com/in/harsh-raj-861213338" target="_blank" rel="noreferrer" className="text-white/40 hover:text-cyan-400 hover:scale-110 transition-all duration-300">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-            </a>
-            {/* Vertical Line */}
-            <div className="w-[1px] h-20 bg-gradient-to-b from-white/20 to-transparent mt-2"></div>
-          </div>
+        {/* Sidebar Social Icons: top-right on mobile, left edge on desktop */}
+        <div className="
+          absolute z-50 pointer-events-auto
+          top-6 right-5 flex flex-row items-center gap-5
+          md:left-10 md:right-auto md:top-0 md:bottom-0 md:flex-col md:items-center md:justify-end md:pb-12 md:gap-6
+          lg:pb-16
+        ">
+          <a href="https://github.com/harshraj9428-stack" target="_blank" rel="noreferrer" className="text-white/50 hover:text-cyan-400 hover:scale-110 transition-all duration-300">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.02c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/harsh-raj-861213338" target="_blank" rel="noreferrer" className="text-white/50 hover:text-cyan-400 hover:scale-110 transition-all duration-300">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+          </a>
+          {/* Vertical line — desktop only */}
+          <div className="hidden md:block w-[1px] h-20 bg-gradient-to-b from-white/20 to-transparent mt-2"></div>
         </div>
 
         {/* Section 1 (Hero): Bottom-Left */}
         <motion.div
           style={{ opacity: o1, y: y1, scale: s1, filter: b1 }}
-          className="absolute inset-0 flex flex-col items-start justify-end pl-24 md:pl-32 pb-16 lg:pb-24 pointer-events-none w-full z-20"
+          className="absolute inset-0 flex flex-col items-start justify-end pl-5 pr-5 md:pl-32 pb-20 md:pb-24 lg:pb-28 pointer-events-none w-full z-20"
         >
-          <div className="flex flex-col items-start drop-shadow-2xl">
-            <h1 className="text-5xl md:text-8xl lg:text-[110px] font-black tracking-widest text-white drop-shadow-[0_0_40px_rgba(0,0,0,0.8)] leading-none uppercase">
+          <div className="flex flex-col items-start drop-shadow-2xl max-w-[calc(100vw-40px)] md:max-w-none">
+            <h1 className="text-[clamp(2.4rem,10vw,7rem)] md:text-8xl lg:text-[110px] font-black tracking-[0.05em] md:tracking-widest text-white drop-shadow-[0_0_40px_rgba(0,0,0,0.8)] leading-none uppercase">
               HARSH RAJ.
             </h1>
-            <div className="flex items-center mt-6 mb-10 overflow-hidden">
-              <span className="text-cyan-400 mr-4 font-light tracking-widest">——</span>
-              <p className="text-lg md:text-2xl text-cyan-400 font-light tracking-wide animate-typing">
+            <div className="flex items-start mt-4 md:mt-6 mb-7 md:mb-10">
+              <span className="text-cyan-400 mr-3 font-light tracking-widest shrink-0 mt-1">——</span>
+              <p className="text-sm md:text-2xl text-cyan-400 font-light tracking-wide leading-relaxed">
                 Building Intelligence · Shaping What Comes Next
               </p>
             </div>
             
-            <a href="#projects" className="pointer-events-auto inline-block border border-cyan-400/30 text-white px-8 py-3 rounded-full uppercase tracking-widest text-xs font-semibold hover:bg-cyan-400/20 hover:border-cyan-400 hover:shadow-[0_0_20px_rgba(0,191,255,0.4)] transition-all duration-300 backdrop-blur-sm">
+            <a href="#projects" className="pointer-events-auto inline-block border border-cyan-400/30 text-white px-6 md:px-8 py-2.5 md:py-3 rounded-full uppercase tracking-widest text-[10px] md:text-xs font-semibold hover:bg-cyan-400/20 hover:border-cyan-400 hover:shadow-[0_0_20px_rgba(0,191,255,0.4)] transition-all duration-300 backdrop-blur-sm">
               View My Work
             </a>
           </div>
@@ -77,7 +80,7 @@ export default function Overlay() {
         {/* Scroll Indicator (Fades out with Hero) */}
         <motion.div 
           style={{ opacity: o1 }} 
-          className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 pointer-events-none z-20"
+          className="absolute bottom-[env(safe-area-inset-bottom,16px)] mb-6 md:bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 pointer-events-none z-20"
         >
           <span className="text-[10px] uppercase tracking-widest text-white/50 font-bold mb-1">Scroll</span>
           <motion.div
@@ -91,44 +94,44 @@ export default function Overlay() {
         {/* Section 2 (Education): Left aligned */}
         <motion.div
           style={{ opacity: o2, y: y2, filter: b2 }}
-          className="absolute inset-0 flex items-center justify-start p-6 md:p-16 lg:p-32 pointer-events-none w-full"
+          className="absolute inset-0 flex items-center justify-start p-4 md:p-16 lg:p-32 pointer-events-none w-full"
         >
-          <div className="w-full max-w-2xl lg:max-w-3xl bg-black/50 backdrop-blur-md border border-white/5 rounded-3xl p-8 md:p-12 lg:p-16 shadow-2xl flex flex-col items-start text-left">
-            <h2 className="text-3xl md:text-5xl font-light tracking-tight leading-tight text-white drop-shadow-md">
+          <div className="w-full max-w-[calc(100vw-32px)] md:max-w-2xl lg:max-w-3xl bg-black/60 backdrop-blur-md border border-white/5 rounded-2xl md:rounded-3xl p-6 md:p-12 lg:p-16 shadow-2xl flex flex-col items-start text-left">
+            <h2 className="text-2xl md:text-5xl font-light tracking-tight leading-tight text-white drop-shadow-md">
               Computer Science <span className="text-cyan-400">&</span> Data Analytics
             </h2>
-            <h3 className="text-xl md:text-3xl text-gray-300 font-light tracking-wide mt-4">
+            <h3 className="text-base md:text-3xl text-gray-300 font-light tracking-wide mt-3 md:mt-4">
               Indian Institute of Technology Patna
             </h3>
-            <div className="w-24 h-[2px] bg-gradient-to-r from-cyan-500 to-transparent mt-10"></div>
+            <div className="w-16 md:w-24 h-[2px] bg-gradient-to-r from-cyan-500 to-transparent mt-6 md:mt-10"></div>
           </div>
         </motion.div>
 
         {/* Section 3 (Specialization): Framed panel on the right */}
         <motion.div
           style={{ opacity: o3, y: y3, filter: b3 }}
-          className="absolute inset-0 flex items-center justify-end p-6 md:p-16 lg:p-32 pointer-events-none w-full"
+          className="absolute inset-0 flex items-center justify-end p-4 md:p-16 lg:p-32 pointer-events-none w-full"
         >
-          <div className="w-full max-w-2xl lg:max-w-3xl bg-black/50 backdrop-blur-md border border-white/5 rounded-3xl p-8 md:p-12 lg:p-16 shadow-2xl flex flex-col items-end text-right">
-            <h2 className="text-2xl md:text-4xl lg:text-[42px] font-light tracking-tight leading-snug text-white">
+          <div className="w-full max-w-[calc(100vw-32px)] md:max-w-2xl lg:max-w-3xl bg-black/60 backdrop-blur-md border border-white/5 rounded-2xl md:rounded-3xl p-6 md:p-12 lg:p-16 shadow-2xl flex flex-col items-end text-right">
+            <h2 className="text-xl md:text-4xl lg:text-[42px] font-light tracking-tight leading-snug text-white">
               Focused on building <span className="text-cyan-400 font-medium">AI-powered applications</span>,
               automation systems, and intelligent full-stack products
               using modern technologies and <span className="text-cyan-400 font-medium">large language models</span>.
             </h2>
-            <div className="w-24 h-[2px] bg-gradient-to-r from-transparent to-cyan-500 mt-10"></div>
+            <div className="w-16 md:w-24 h-[2px] bg-gradient-to-r from-transparent to-cyan-500 mt-6 md:mt-10"></div>
           </div>
         </motion.div>
 
         {/* Section 4 (Tagline): Center aligned */}
         <motion.div
           style={{ opacity: o4, y: y4, filter: b4 }}
-          className="absolute inset-0 flex items-center justify-center p-6 md:p-16 lg:p-32 pointer-events-none w-full"
+          className="absolute inset-0 flex items-center justify-center p-4 md:p-16 lg:p-32 pointer-events-none w-full"
         >
-          <div className="w-full max-w-2xl lg:max-w-4xl bg-black/50 backdrop-blur-md border border-white/5 rounded-3xl p-8 md:p-12 lg:p-16 shadow-2xl flex flex-col items-center text-center">
-            <h2 className="text-3xl md:text-5xl font-light tracking-tight leading-tight text-white drop-shadow-md">
-              Designing intelligent systems <br className="hidden md:block"/> <span className="italic text-cyan-400">&</span> AI-driven digital experiences.
+          <div className="w-full max-w-[calc(100vw-32px)] md:max-w-2xl lg:max-w-4xl bg-black/60 backdrop-blur-md border border-white/5 rounded-2xl md:rounded-3xl p-6 md:p-12 lg:p-16 shadow-2xl flex flex-col items-center text-center">
+            <h2 className="text-2xl md:text-5xl font-light tracking-tight leading-snug text-white drop-shadow-md">
+              Designing intelligent systems <span className="italic text-cyan-400"> &</span> AI-driven digital experiences.
             </h2>
-            <div className="w-24 h-[2px] bg-gradient-to-r from-transparent via-cyan-500 to-transparent mt-10"></div>
+            <div className="w-16 md:w-24 h-[2px] bg-gradient-to-r from-transparent via-cyan-500 to-transparent mt-6 md:mt-10"></div>
           </div>
         </motion.div>
 
