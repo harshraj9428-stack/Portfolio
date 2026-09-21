@@ -1,4 +1,11 @@
 @echo off
-echo Starting Next.js Development Server on localhost:3000...
+cd /d "%~dp0"
+title Portfolio Dev Server
+
+echo Starting Next.js Development Server on http://localhost:3000...
+start http://localhost:3000
 npm run dev
-pause
+if %errorlevel% neq 0 (
+    echo [ERROR] Dev server stopped unexpectedly.
+    pause
+)
